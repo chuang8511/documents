@@ -1,0 +1,69 @@
+@startuml
+
+package Pipelines {
+
+    class Trigger {
+        account_ids
+        prompts
+    }
+
+    class SalesTool_ReadData {
+
+    }
+
+    class AIComponent_TextSummarisation {
+
+    }
+
+    class Application_SendPost {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> SalesTool_ReadData
+    SalesTool_ReadData --> AIComponent_TextSummarisation
+    Trigger -> AIComponent_TextSummarisation
+    AIComponent_TextSummarisation --> Application_SendPost
+    Application_SendPost -> Result
+}
+
+
+@enduml
+
+@startuml
+
+package Pipelines {
+
+    class Trigger {
+        account_ids
+        prompts
+    }
+
+    class SalesTool_ReadData {
+
+    }
+
+    class AIComponent_TextSummarisation {
+
+    }
+
+    class Application_SendPost {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> SalesTool_ReadData
+    SalesTool_ReadData --> AIComponent_TextSummarisation
+    Trigger -> AIComponent_TextSummarisation
+    AIComponent_TextSummarisation --> Application_SendPost
+    Application_SendPost -> Result
+}
+
+
+@enduml

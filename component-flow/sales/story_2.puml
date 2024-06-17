@@ -1,0 +1,94 @@
+@startuml
+
+package Pipelines {
+
+    class Trigger {
+        keywords
+    }
+
+    class Application_SearchData {
+
+    }
+
+    class AIComponent_TextGeneration {
+
+    }
+
+    class Application_SendMessage {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> Application_SearchData
+    Application_SearchData --> AIComponent_TextGeneration
+    AIComponent_TextGeneration --> Application_SendMessage
+    Application_SendMessage -> Result
+
+    class Trigger2 {
+        Application_event
+    }
+
+    class SocialMedia_SendPost {
+
+    }
+
+    class Result2 {
+
+    }
+    Trigger2 --> SocialMedia_SendPost
+    SocialMedia_SendPost --> Result2
+}
+
+
+@enduml
+
+@startuml
+
+
+package Pipelines {
+
+    class Trigger {
+        keywords
+    }
+
+    class LinkedIn_ReadData {
+
+    }
+
+    class AIComponent_TextGeneration {
+
+    }
+
+    class Slack_SendMessage {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> LinkedIn_ReadData
+    LinkedIn_ReadData --> AIComponent_TextGeneration
+    AIComponent_TextGeneration --> Slack_SendMessage
+    Slack_SendMessage -> Result
+
+    class Trigger2 {
+        Slack_event
+    }
+
+    class LinkedIn_SendMessage {
+
+    }
+
+    class Result2 {
+
+    }
+    Trigger2 --> LinkedIn_SendMessage
+    LinkedIn_SendMessage --> Result2
+}
+
+
+@enduml

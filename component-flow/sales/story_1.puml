@@ -1,0 +1,66 @@
+@startuml
+
+package Pipelines {
+
+    class Trigger {
+
+    }
+
+    class SalesTool_ReadData {
+
+    }
+
+    class AIComponent_TextSummarisation {
+
+    }
+
+    class CRM_InsertData {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> SalesTool_ReadData
+    SalesTool_ReadData --> AIComponent_TextSummarisation
+    AIComponent_TextSummarisation --> CRM_InsertData
+    CRM_InsertData -> Result
+}
+
+
+@enduml
+
+@startuml
+
+package Pipelines {
+
+    class Trigger {
+        Scheduler
+    }
+
+    class WhatsApp_ReadData {
+        texts
+    }
+
+    class AIComponent_TextSummarisation {
+
+    }
+
+    class Salesforce_InsertData {
+        channel
+        texts
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> WhatsApp_ReadData
+    WhatsApp_ReadData --> AIComponent_TextSummarisation
+    AIComponent_TextSummarisation --> Salesforce_InsertData
+    Salesforce_InsertData -> Result
+}
+
+
+@enduml

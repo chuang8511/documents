@@ -1,0 +1,35 @@
+@startuml
+
+package Pipelines {
+    class Trigger {
+        table_names
+    }
+
+    class PostgreSQL_ReadData {
+        table_name
+        period
+    }
+
+    class BigQuery_CreateTable {
+        table_name
+    }
+
+    class BigQuery_InsertData {
+        table_name
+        columns
+        filters
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> PostgreSQL_ReadData
+    PostgreSQL_ReadData -> BigQuery_CreateTable
+    PostgreSQL_ReadData --> BigQuery_InsertData
+    BigQuery_InsertData -> Result
+
+}
+
+
+@enduml
