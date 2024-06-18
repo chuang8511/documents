@@ -1,6 +1,44 @@
 @startuml
 
 package Pipelines {
+
+    class Trigger {
+        table_names: List<String>
+    }
+
+    class DataSources_ReadData {
+        table_name
+        columns
+        filters
+    }
+
+    class DataDestinations_CreateTable {
+        table_name
+        columns
+    }
+
+    class DataDestinations_InsertData {
+        table_name
+        columns
+        filters
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> DataSources_ReadData
+    DataSources_ReadData -> DataDestinations_CreateTable
+    DataSources_ReadData --> DataDestinations_InsertData
+    DataDestinations_InsertData -> Result
+}
+
+@enduml
+
+
+@startuml
+
+package Pipelines {
     class Trigger {
         table_names
     }
