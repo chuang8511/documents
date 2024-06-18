@@ -1,0 +1,72 @@
+@startuml
+
+package Pipelines {
+
+    class Trigger {
+        EventListener
+    }
+
+    class Application_ReadMessage {
+
+    }
+
+    class AIComponent_TextSummarization {
+
+    }
+
+    class Application_PostMessage {
+
+    }
+
+    class Result {
+
+    }
+    Trigger -> Application_ReadMessage
+    Application_ReadMessage --> AIComponent_TextSummarization
+    AIComponent_TextSummarization -> Application_PostMessage
+    Application_PostMessage --> Result
+}
+
+@enduml
+
+
+@startuml
+
+class Trigger {
+    SlackEvent
+}
+
+class Slack_ReadMessage {
+
+}
+
+class AIComponent_TextSummarization {
+
+}
+
+class Linear_PostTicket {
+
+}
+
+class GitHub_PostIssue {
+
+}
+
+class Eraser_PostDocument {
+
+}
+
+class Result {
+
+}
+
+Trigger -> Slack_ReadMessage
+Slack_ReadMessage -> AIComponent_TextSummarization
+AIComponent_TextSummarization --> Linear_PostTicket
+AIComponent_TextSummarization --> GitHub_PostIssue
+AIComponent_TextSummarization --> Eraser_PostDocument
+Eraser_PostDocument ---> Result
+GitHub_PostIssue ---> Result
+Linear_PostTicket ---> Result
+
+@enduml
