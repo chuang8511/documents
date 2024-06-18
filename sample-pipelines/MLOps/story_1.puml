@@ -1,0 +1,93 @@
+@startuml
+
+package Pipelines {
+    class Trigger {
+        BatchData
+    }
+
+    class Application_CleanData {
+
+    }
+
+    class AIComponent_TrainModel {
+
+    }
+
+    class AIComponent_EvaluateModel {
+
+    }
+
+    class HumanInLoop {
+
+    }
+
+    class AIComponent_DeployModel {
+
+    }
+
+    class AIComponent_MonitorModel {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> Application_CleanData
+    Application_CleanData -> AIComponent_TrainModel
+    AIComponent_TrainModel --> AIComponent_EvaluateModel
+    AIComponent_EvaluateModel --> HumanInLoop
+    HumanInLoop -> AIComponent_DeployModel
+    AIComponent_DeployModel --> AIComponent_MonitorModel
+    AIComponent_DeployModel -> Result
+
+}
+
+@enduml
+
+@startuml
+
+package Pipelines {
+    class Trigger {
+        BatchData
+    }
+
+    class CodeOperator_CleanData {
+
+    }
+
+    class InstillAIModel_TrainModel {
+
+    }
+
+    class ScikitLearn_EvaluateModel {
+
+    }
+
+    class HumanInLoop {
+
+    }
+
+    class InstillAIModel_DeployModel {
+
+    }
+
+    class InstillAIModel_MonitorModel {
+
+    }
+
+    class Result {
+
+    }
+
+    Trigger -> CodeOperator_CleanData
+    CodeOperator_CleanData -> InstillAIModel_TrainModel
+    InstillAIModel_TrainModel --> ScikitLearn_EvaluateModel
+    ScikitLearn_EvaluateModel --> HumanInLoop
+    HumanInLoop -> InstillAIModel_DeployModel
+    InstillAIModel_DeployModel --> InstillAIModel_MonitorModel
+    InstillAIModel_DeployModel -> Result
+
+}
+
+@enduml
